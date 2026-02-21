@@ -261,8 +261,8 @@ deploy:
         set -euo pipefail
         scp -o StrictHostKeyChecking=no "$WAR_PATH" "${{ vars.EC2_USER }}@$EC2_HOST:/tmp/hellowar.war"
 
-        - name: Deploy WAR on EC2 (no deploy.sh)
-          run: |
+    - name: Deploy WAR on EC2 (no deploy.sh)
+      run: |
             set -euo pipefail
             ssh -o StrictHostKeyChecking=no "${{ vars.EC2_USER }}@$EC2_HOST" "DB_ENABLED='$DB_ENABLED' RELEASE_NUMBER='$RELEASE_NUMBER' DB_URL='${{ secrets.DB_URL }}' DB_USER='${{ secrets.DB_USER }}' DB_PASSWORD='${{ secrets.DB_PASSWORD }}' bash -s" << 'EOF'
             # PPPP NOTE: Add secrets DB_URL/DB_USER/DB_PASSWORD in repo settings. They are used only when DB_ENABLED=true.
