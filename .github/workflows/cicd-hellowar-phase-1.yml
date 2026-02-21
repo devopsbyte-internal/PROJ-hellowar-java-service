@@ -16,22 +16,22 @@ on:
         type: boolean
         required: false
         default: true
-deploy_version:
-  description: 'Version to deploy from Artifactory (used by deploy.sh). Example: 1.0.0'
-  required: true
-  default: '1.0.0'
-db_enabled:
-  description: 'Enable DB telemetry on the backend? (DB_ENABLED)'
-  type: choice
-  required: false
-  default: 'false'
-  options:
-    - 'false'
-    - 'true'
-release_number:
-  description: 'Release number exposed via API (RELEASE_NUMBER)'
-  required: false
-  default: 'manual'
+      deploy_version:
+        description: 'Version to deploy from Artifactory (used by deploy.sh). Example: 1.0.0'
+        required: true
+        default: '1.0.0'
+      db_enabled:
+        description: 'Enable DB telemetry on the backend? (DB_ENABLED)'
+        type: choice
+        required: false
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
+      release_number:
+        description: 'Release number exposed via API (RELEASE_NUMBER)'
+        required: false
+        default: 'manual'
 
 # -----------------------------
 # PPPP NOTE:
